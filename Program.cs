@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BaseProject
+namespace Frogger
 {
     public static class Program
     {
