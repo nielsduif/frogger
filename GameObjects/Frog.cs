@@ -13,10 +13,11 @@ namespace Frogger
     {
         int moveAmount = 40;
         Boolean moved;
+        public int lives;
 
         public Frog() : base("spr_frog")
         {
-
+            lives = 3;
         }
 
         public override void Init()
@@ -28,6 +29,12 @@ namespace Frogger
 
         public override void Update()
         {
+            if (lives <= 0)
+            {
+                GameEnvironment.SwitchTo(3);
+                lives = 3;
+                Init();
+            }
             if (GameEnvironment.KeyboardState.IsKeyDown(Keys.Left) && !moved)
             {
                 moved = true;
@@ -37,7 +44,6 @@ namespace Frogger
                     position.X = 0;
                 }
             }
-
             else if (GameEnvironment.KeyboardState.IsKeyDown(Keys.Right) && !moved)
             {
                 moved = true;

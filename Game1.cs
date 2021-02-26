@@ -20,7 +20,10 @@ namespace Frogger
             screen = new Point(520, 300);
             ApplyResolutionSettings();
 
+            gameStateList.Add(new MenuState());
             gameStateList.Add(new PlayingState());
+            gameStateList.Add(new WinState());
+            gameStateList.Add(new GameOverState());
             GameEnvironment.SwitchTo(0);
 
         }
